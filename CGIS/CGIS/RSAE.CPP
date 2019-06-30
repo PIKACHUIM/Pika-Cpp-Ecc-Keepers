@@ -61,7 +61,6 @@ string RSAE::ENCY(const  string &ENCY_CLTX)
     const string ENCY_PPBK=RSAK[0];
     RSA *ENCY_TRSA = NULL;
     BIO *ENCY_BRSA = BIO_new_mem_buf((unsigned char *)ENCY_PPBK.c_str(), -1);
-    RSA* ENCY_PUBK = RSA_new();
          ENCY_TRSA = PEM_read_bio_RSAPublicKey(ENCY_BRSA,
                                               &ENCY_TRSA, NULL, NULL);
          int ENCY_LENS = RSA_size(ENCY_TRSA);

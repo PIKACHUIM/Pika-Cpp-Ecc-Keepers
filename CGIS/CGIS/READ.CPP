@@ -51,14 +51,22 @@ string FIFT(char * filename)
            READ_BUFF.put(ch);
     return READ_BUFF.str();
 }
-string FIFR(char * filename)
+void  FIFR(char * filename,string str)
 {
-         ifstream READ_IOFF(filename);
-    ostringstream READ_BUFF;
-     char ch;
-     while(READ_BUFF&&
-           READ_IOFF.get(ch))
-           READ_BUFF.put(ch);
-    return READ_BUFF.str();
+    ofstream ofile(filename);
+        stringstream buf;
+        if(ofile.fail())
+        {
+            cout<<"打开文件"<<filename<<"失败!"<<endl;
+            exit(1);
+        }
+        buf << str;
+        char ch;
+        ch = buf.get();
+        while(ch != EOF)
+        {
+            ofile.put(ch);
+            ch = buf.get();
+        }
 }
 #endif

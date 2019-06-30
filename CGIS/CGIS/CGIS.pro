@@ -20,8 +20,7 @@ SOURCES += \
     MD5E.CPP \
     RSAE.CPP \
     READ.CPP \
-    DATA.CPP \
-    FPPS.CPP
+    DATA.CPP
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -106,8 +105,7 @@ HEADERS += \
     OSSL/x509_vfy.h \
     OSSL/x509v3.h \
     RSAE.HPP \
-    DATA.HPP \
-    FPPS.HPP
+    DATA.HPP
 
 DISTFILES += \
     OSSL/asn1.h.gch \
