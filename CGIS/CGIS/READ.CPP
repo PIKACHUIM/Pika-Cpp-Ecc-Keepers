@@ -7,66 +7,71 @@
 #include <stdlib.h>
 #include <string>
 using namespace std;
-
-class GSTR
+int READ_SIZE(char* SIZE_NAME)        //READ_SIZE
 {
-public:
-    GSTR() {}
-   fstream FSTM;
-    string STRS;
-    void RFIS(const char * filename)   //读取文件到字符串
-    {
-            ifstream ifile(filename);
-            ostringstream buf;
-            char ch;
-            while (buf&&ifile.get(ch))
-                buf.put(ch);
-            cout<<buf.str()<<endl;
-    }
-    void WTFL(const char * filename)  //字符串来写入文件
-    {
-        fstream cf(filename, ios::out | ios::binary);
-        cf.close();
-        cin >> STRS;
-        cf.open(filename, ios::in | ios::out | ios::binary);
-        if (cf.fail()){cout << "打开文件失败" << endl;exit(1);}
-        cf.write((char*)&STRS, sizeof(STRS));
-        cf.close();
-    }
-    //目标：读取字符串及文件名，将其保存到文件中
-    void GASF(string Stringname ,const char * Filename)//问题在于此处并没有使用地址，而是使用了字符串的名字
-    {
-        fstream cf(Filename, ios::out);//使用txt格式保存并以便输出string
-        cf<<Stringname.data();
-        cf.close();
-    }
-};
+         ifstream SIZE_IFST(SIZE_NAME);
+    ostringstream SIZE_OSST;
+             char SZIE_CHER;
+            while(SIZE_OSST
+                &&SIZE_IFST.
+              get(SZIE_CHER))
+                  SIZE_OSST.
+              put(SZIE_CHER);
+           return SIZE_OSST.str().size();
+}
+bool CHEC(string str)
+{
+    int SIZE = str.size()-1;//判断次数要减1
+    stringstream buf;
+    buf << str;
+    int sign=0;             //判断标志
+    char ch;
+    buf.get(ch);
+    while(SIZE){
+        sign = 0;
+        if(ch == 26){
+           sign = 2;    //后一个字符为“A”
+           break;}
+        if(sign == 0)buf.get(ch);
+        SIZE = SIZE-1;}
+    if(sign == 2)return true;        //含有1A则返回true
+    else         return false;
+}
 string FIFT(char * filename)
 {
-         ifstream READ_IOFF(filename);
-    ostringstream READ_BUFF;
-     char ch;
-     while(READ_BUFF&&
-           READ_IOFF.get(ch))
-           READ_BUFF.put(ch);
-    return READ_BUFF.str();
+    ifstream ifile(filename);
+    //将文件读入到ostringstream对象buf中
+    ostringstream buf;
+    int SIZE = READ_SIZE(filename);
+    char ch;
+    ifile.get(ch);
+    while(SIZE)
+    {
+        buf.put(ch);
+        ifile.get(ch);
+        SIZE = SIZE - 1;
+    }
+    return buf.str();
+
 }
-void  FIFR(char * filename,string str)
+void FIFR(char *filename,string str)
 {
     ofstream ofile(filename);
-        stringstream buf;
-        if(ofile.fail())
-        {
-            cout<<"打开文件"<<filename<<"失败!"<<endl;
-            exit(1);
-        }
-        buf << str;
-        char ch;
+    stringstream buf;
+    if(ofile.fail())
+    {
+        cout<<"打开文件"<<filename<<"失败!"<<endl;
+        exit(1);
+    }
+    int SIZE=str.size();
+    buf << str;
+    char ch;
+    ch = buf.get();
+    while(SIZE)
+    {
+        ofile.put(ch);
         ch = buf.get();
-        while(ch != EOF)
-        {
-            ofile.put(ch);
-            ch = buf.get();
-        }
+        SIZE = SIZE - 1;
+    }
 }
 #endif

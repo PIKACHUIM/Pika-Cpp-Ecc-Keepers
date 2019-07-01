@@ -39,6 +39,8 @@ private slots:
 
     void on_code_input_editingFinished();
 
+    void on_confirm_close_released();
+
 private:
     Ui::Register_Widget *ui;
     File_Widget *w_file = new File_Widget;

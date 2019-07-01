@@ -4,8 +4,8 @@
 #include"READ.CPP"
 void   RSAE::GKEY(string strKey[2])
 {
-    size_t pri_len;
-    size_t pub_len;
+    size_t GKEY_PRIL;    //私钥长度
+    size_t pub_len;      //公钥长度
     char *pri_key = NULL;
     char *pub_key = NULL;
     RSA *keypair = RSA_generate_key(KEY_LENGTH, RSA_3, NULL, NULL);
@@ -13,13 +13,13 @@ void   RSAE::GKEY(string strKey[2])
     BIO *pub = BIO_new(BIO_s_mem());
     PEM_write_bio_RSAPrivateKey(pri, keypair, NULL, NULL, 0, NULL, NULL);
     PEM_write_bio_RSAPublicKey(pub, keypair);
-    pri_len = BIO_pending(pri);
+    GKEY_PRIL = BIO_pending(pri);
     pub_len = BIO_pending(pub);
-    pri_key = (char *)malloc(pri_len + 1);
+    pri_key = (char *)malloc(GKEY_PRIL + 1);
     pub_key = (char *)malloc(pub_len + 1);
-    BIO_read(pri, pri_key, pri_len);
+    BIO_read(pri, pri_key, GKEY_PRIL);
     BIO_read(pub, pub_key, pub_len);
-    pri_key[pri_len] = '\0';
+    pri_key[GKEY_PRIL] = '\0';
     pub_key[pub_len] = '\0';
     RSAK[0]=pub_key;
     RSAK[1]=pri_key;
@@ -43,6 +43,8 @@ void   RSAE::LKEY()
 {
     RSAK[0]=FIFT((char*)"PUBK.PEM");
     RSAK[1]=FIFT((char*)"PRIK.PEM");
+    //cout<<RSAK[0]<<endl;
+    //cout<<RSAK[1]<<endl;
 }
 void   RSAE::SKEY(string IRSA[2])
 {
@@ -76,14 +78,12 @@ BIO_free_all(ENCY_BRSA);
 string RSAE::DECY(const  string& DECY_CIPH)
 {
       string DECY_SRET;
-      LKEY();
+       LKEY();
 const string DECY_PRIK=RSAK[1];
   RSA *DECY_TRSA = RSA_new();
   BIO *DECY_BRSA;
-       DECY_BRSA = BIO_new_mem_buf((unsigned char *)
-                                              DECY_PRIK.c_str(), -1);
-       DECY_TRSA = PEM_read_bio_RSAPrivateKey(DECY_BRSA,
-                                             &DECY_TRSA, NULL, NULL);
+       DECY_BRSA = BIO_new_mem_buf((unsigned char*)DECY_PRIK.c_str(), -1);
+       DECY_TRSA = PEM_read_bio_RSAPrivateKey(DECY_BRSA,&DECY_TRSA, nullptr, nullptr);
    int DECY_LENS =      RSA_size(DECY_TRSA);
  char* DECY_TEXT = (char*)malloc(DECY_LENS + 1);
 memset(DECY_TEXT,0,

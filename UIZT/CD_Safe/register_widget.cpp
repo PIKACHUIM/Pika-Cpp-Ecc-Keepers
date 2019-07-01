@@ -17,7 +17,13 @@ Register_Widget::Register_Widget(QWidget *parent) :
                 "}");
     back.show();
 
+    ui->name_input->clear();
+    ui->code_input->clear();
+    ui->recode_input->clear();
     ui->confirm->hide();
+    ui->warning->hide();
+    ui->decode_label->hide();
+    ui->confirm_close->hide();
 
     ui->picture->clear();
     QPixmap *judge_pixmap = new QPixmap(":/judge.png");   //验证成功picture
@@ -75,6 +81,8 @@ void Register_Widget::on_recode_input_editingFinished()
             && !ui->code_input->text().isEmpty())
     {
         QString str = "root";
+
+
         if (ui->name_input->text() == str)
         {
             ui->picture->clear();
@@ -109,6 +117,7 @@ void Register_Widget::on_recode_input_editingFinished()
         }
         else if(ui->code_input->text() == ui->recode_input->text())
         {
+            QString str_decode = "567890";
             ui->picture->clear();
             QPixmap *true_pixmap = new QPixmap(":/true.png");   //验证成功picture
             true_pixmap->scaled(ui->picture->size(), Qt::KeepAspectRatio);
@@ -122,6 +131,11 @@ void Register_Widget::on_recode_input_editingFinished()
             ui->info->setPixmap(*true_caption);
 
             ui->confirm->show();  //按钮显示
+            ui->warning->show();
+            ui->decode_label->clear();
+            ui->decode_label->setText(str_decode);
+            ui->decode_label->show();
+            ui->confirm_close->show();
         }
         else
         {
@@ -200,6 +214,7 @@ void Register_Widget::on_name_input_editingFinished()
         }
         else if(ui->code_input->text() == ui->recode_input->text())
         {
+            QString str_decode = "567890";
             ui->picture->clear();
             QPixmap *true_pixmap = new QPixmap(":/true.png");   //验证成功picture
             true_pixmap->scaled(ui->picture->size(), Qt::KeepAspectRatio);
@@ -213,6 +228,11 @@ void Register_Widget::on_name_input_editingFinished()
             ui->info->setPixmap(*true_caption);
 
             ui->confirm->show();  //按钮显示
+            ui->warning->show();
+            ui->decode_label->clear();
+            ui->decode_label->setText(str_decode);
+            ui->decode_label->show();
+            ui->confirm_close->show();
         }
         else
         {
@@ -292,6 +312,7 @@ void Register_Widget::on_code_input_editingFinished()
         }
         else if(ui->code_input->text() == ui->recode_input->text())
         {
+            QString str_decode = "567890";
             ui->picture->clear();
             QPixmap *true_pixmap = new QPixmap(":/true.png");   //验证成功picture
             true_pixmap->scaled(ui->picture->size(), Qt::KeepAspectRatio);
@@ -305,6 +326,11 @@ void Register_Widget::on_code_input_editingFinished()
             ui->info->setPixmap(*true_caption);
 
             ui->confirm->show();  //按钮显示
+            ui->warning->show();
+            ui->decode_label->clear();
+            ui->decode_label->setText(str_decode);
+            ui->decode_label->show();
+            ui->confirm_close->show();
         }
         else
         {
@@ -339,4 +365,11 @@ void Register_Widget::on_code_input_editingFinished()
 
         ui->confirm->hide();
     }
+}
+
+void Register_Widget::on_confirm_close_released()
+{
+    ui->warning->hide();
+    ui->decode_label->hide();
+    ui->confirm_close->hide();
 }

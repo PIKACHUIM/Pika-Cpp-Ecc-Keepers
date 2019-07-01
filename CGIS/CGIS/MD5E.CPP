@@ -1,7 +1,7 @@
 #ifndef   MD5E_CPP
 #define   MD5E_CPP
 #include "MD5E.HPP"
-#include "READ.CPP"
+#include "read.CPP"
 #define PASS_PATH ".//CONF//DAT_PASS_00.INI"
 bool MD5E::MD5P(string MD5E_INPU)
 {

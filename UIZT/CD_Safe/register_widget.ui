@@ -55,6 +55,9 @@ border-image: url(:/backcaption.png);</string>
      <height>30</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font: 10pt &quot;Arial&quot;;</string>
+   </property>
   </widget>
   <widget class="QToolButton" name="search">
    <property name="geometry">
@@ -156,7 +159,7 @@ border-image: url(:/backcaption.png);</string>
   <widget class="QToolButton" name="confirm">
    <property name="geometry">
     <rect>
-     <x>540</x>
+     <x>580</x>
      <y>470</y>
      <width>104</width>
      <height>150</height>
@@ -168,7 +171,7 @@ font: 24pt &quot;黑体&quot;;
 color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
-    <string>确  认</string>
+    <string>进  入</string>
    </property>
   </widget>
   <widget class="QLabel" name="picture">
@@ -197,6 +200,82 @@ color: rgb(255, 255, 255);</string>
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="warning">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>320</y>
+     <width>452</width>
+     <height>254</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>452</width>
+     <height>254</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/decode.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="decode_label">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>505</y>
+     <width>391</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 20pt &quot;Arial&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>DECODE</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="confirm_close">
+   <property name="geometry">
+    <rect>
+     <x>580</x>
+     <y>470</y>
+     <width>104</width>
+     <height>150</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/confirm_button.png);
+font: 24pt &quot;黑体&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>确  认</string>
+   </property>
+  </widget>
+  <zorder>confirm</zorder>
+  <zorder>confirm_close</zorder>
+  <zorder>back</zorder>
+  <zorder>path</zorder>
+  <zorder>dircomboBox</zorder>
+  <zorder>search</zorder>
+  <zorder>name_input</zorder>
+  <zorder>code_input</zorder>
+  <zorder>recode_input</zorder>
+  <zorder>name</zorder>
+  <zorder>code</zorder>
+  <zorder>recode</zorder>
+  <zorder>picture</zorder>
+  <zorder>info</zorder>
+  <zorder>warning</zorder>
+  <zorder>decode_label</zorder>
  </widget>
  <resources/>
  <connections/>

@@ -25,6 +25,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        add_delete.cpp \
         file_widget.cpp \
         login_widget.cpp \
         main.cpp \
@@ -33,6 +34,7 @@ SOURCES += \
         verify_widget.cpp
 
 HEADERS += \
+        add_delete.h \
         file_widget.h \
         login_widget.h \
         mainwidget.h \
@@ -40,6 +42,7 @@ HEADERS += \
         verify_widget.h
 
 FORMS += \
+        add_delete.ui \
         file_widget.ui \
         login_widget.ui \
         mainwidget.ui \

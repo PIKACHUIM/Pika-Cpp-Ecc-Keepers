@@ -29,5 +29,8 @@
         <file>false_name.png</file>
         <file>true_create.png</file>
         <file>false_null.png</file>
+        <file>decode.png</file>
+        <file>add_background.png</file>
+        <file>delete_background.png</file>
     </qresource>
 </RCC>

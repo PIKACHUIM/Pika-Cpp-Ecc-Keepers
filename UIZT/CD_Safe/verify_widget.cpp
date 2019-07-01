@@ -18,6 +18,7 @@ Verify_Widget::Verify_Widget(QWidget *parent) :
     back.show();
 
     ui->enter->hide();
+    ui->code_input->clear();
 
     ui->picture->clear();
     QPixmap *judge_pixmap = new QPixmap(":/judge.png");   //验证成功picture
