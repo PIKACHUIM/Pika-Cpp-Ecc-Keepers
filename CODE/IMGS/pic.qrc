@@ -1,0 +1,38 @@
+<RCC>
+    <qresource prefix="/">
+        <file>add_background.png</file>
+        <file>backcaption.png</file>
+        <file>backg.png</file>
+        <file>caption.png</file>
+        <file>choose.png</file>
+        <file>choose2.png</file>
+        <file>confirm_button.png</file>
+        <file>create_button.png</file>
+        <file>create_caption.png</file>
+        <file>decode.png</file>
+        <file>decode_button.png</file>
+        <file>delete_background.png</file>
+        <file>entercaption.png</file>
+        <file>false.png</file>
+        <file>false_code.png</file>
+        <file>false_name.png</file>
+        <file>false_null.png</file>
+        <file>falseline.png</file>
+        <file>file.png</file>
+        <file>File_background.png</file>
+        <file>judge.png</file>
+        <file>judgeline.png</file>
+        <file>key.png</file>
+        <file>login.png</file>
+        <file>open_caption.png</file>
+        <file>pic.qrc</file>
+        <file>Please_choose.png</file>
+        <file>safe.png</file>
+        <file>start_button.png</file>
+        <file>true.png</file>
+        <file>true_create.png</file>
+        <file>trueline.png</file>
+        <file>verify_background.png</file>
+        <file>false_origin_code.png</file>
+    </qresource>
+</RCC>
